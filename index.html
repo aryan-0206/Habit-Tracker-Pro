@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitPro Dashboard</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">Habit<span>Pro</span></div>
+            <div class="menu">
+                <div class="menu-item active">Dashboard</div>
+                <div class="menu-item">Analytics</div>
+            </div>
+            <div class="habits-list-card sidebar-habits-card" id="sidebarHabits">
+                <h3>Your Habits</h3>
+                <ul></ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="toolbar">
+                <div class="controls" aria-hidden="false">
+                    <select id="monthSelect" aria-label="Select month"></select>
+                    <select id="yearSelect" aria-label="Select year"></select>
+                </div>
+                <div class="center-add">
+                    <label for="newHabitName" class="visually-hidden">New habit name</label>
+                    <input id="newHabitName" type="text" placeholder="e.g. Morning run" aria-label="New habit name" />
+                    <button id="addHabitBtn">Add Habit</button>
+                    <button id="clearAllBtn" class="danger">Reset All Habits</button>
+                </div>
+            </header>
+
+            <div class="kpi-row">
+                <div class="kpi-card monthly-completion">
+                    <span class="label">Monthly Completion</span>
+                    <span id="monthlyPct" class="value">0%</span>
+                </div>
+                <div class="kpi-card total-habits">
+                    <span class="label">Total Habits</span>
+                    <span id="totalHabits" class="value">0</span>
+                </div>
+                <div class="kpi-card best-week">
+                    <span class="label">Best Performing Week</span>
+                    <span id="bestWeek" class="value">-</span>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-container daily-chart">
+                    <h3 class="chart-title">Daily Completion</h3>
+                    <div class="chart-card">
+                        <canvas id="dailyChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container weekly-chart">
+                    <h3 class="chart-title">Weekly Performance</h3>
+                    <div class="chart-card">
+                        <canvas id="weeklyChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container progress-chart">
+                    <h3 class="chart-title">Progress Overview</h3>
+                    <div class="chart-card">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="matrix-card habit-matrix-section">
+                <div class="matrix-header">
+                    <h2>Habit Matrix</h2>
+                </div>
+                <div class="grid-wrapper">
+                    <div id="habitGrid" class="habit-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="toast" class="toast" aria-live="polite" aria-atomic="true" hidden></div>
+    <script src="static/js/app.js"></script>
+
+    <!-- Footer with copyright and anti-copy notice -->
+    <footer style="text-align: center; padding: 20px; background: var(--card); color: var(--text); border-top: 1px solid var(--border); margin-top: 40px;">
+        <p>&copy; 2026 Aryan ❤️. All rights reserved.</p>
+        <p>This project is for educational purposes only. Unauthorized copying, distribution, or use is prohibited.</p>
+    </footer>
+</body>
+</html>
